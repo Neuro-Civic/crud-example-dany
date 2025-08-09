@@ -1,0 +1,28 @@
+<h2>CRUD de Usuarios</h2>
+
+<form (ngSubmit)="saveUser()">
+  <input type="text" placeholder="Nombre" [(ngModel)]="currentUser.name" name="name" required>
+  <input type="email" placeholder="Email" [(ngModel)]="currentUser.email" name="email" required>
+  <button type="submit">{{ editing ? 'Actualizar' : 'Agregar' }}</button>
+  <button type="button" (click)="editing=false; currentUser={id:0,name:'',email:''}">Cancelar</button>
+</form>
+
+<table border="1" cellpadding="5">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let u of users" >
+    <td>{{ u.name }}</td>
+    <td>{{ u.email }}</td>
+    <td>
+      <button (click)="editUser(u)">Editar</button>
+      <button (click)="deleteUser(u.id)">Eliminar</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
