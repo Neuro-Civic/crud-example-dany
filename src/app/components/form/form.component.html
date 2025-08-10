@@ -1,0 +1,7 @@
+<form (ngSubmit)="sendEditedUser()">
+  <input type="text" placeholder="Nombre" [(ngModel)]="localUser.name" name="name" required>
+  <input type="email" placeholder="Email" [(ngModel)]="localUser.email" name="email" required>
+
+  <button type="submit">{{ editingUser ? 'Actualizar' : 'Agregar' }}</button>
+  <button type="button" (click)="cancelEdit()">Cancelar</button>
+</form>
