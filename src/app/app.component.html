@@ -1,11 +1,15 @@
-<style>
 
-</style>
+<h2>CRUD de Usuarios</h2>
+<app-form
+  [currentUserForm]="currentUser"
+  [editingUser]="editing"
+  (cancel)="onCancelEdit()"
+  (currentUserEdited)="onUserSaved($event)">
+</app-form>
 
-<main class="main">
-  <div class="content">
-    Hola
-  </div>
-</main>
+<app-users
+  [users]="users"
+  (edit)="onEditUser($event)"
+  (delete)="onDeleteUser($event)">
+</app-users>
 
-<router-outlet />
